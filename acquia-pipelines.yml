@@ -1,11 +1,5 @@
 version: 1.0.0
 
-variables:
-  global:
-    DEPLOY_VCS_PATH: dev
-    PIPELINE_DEPLOY_VCS_PATH: dev
-    SOURCE_VCS_PATH: test
-
 events:
   build:
     steps:
@@ -13,12 +7,11 @@ events:
       - build_site:
           script:
             - touch docroot/test.html
-            - echo "Pipelines examples 717. You successfully deployed your build to an ODE" > docroot/test.html
+            - echo "Pipelines examples 7171. You successfully deployed your build to an ODE" > docroot/test.html
             - composer install
 
-  post-deploy:
+  pr-merged:
     steps:
-      # Deploy the build artifact to a Cloud on-demand environment.
       - deploy:
           script:
             - pipelines-deploy
