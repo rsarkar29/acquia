@@ -1,0 +1,24 @@
+version: 1.0.0
+
+variables:
+  global:
+    DEPLOY_VCS_PATH: dev
+    PIPELINE_DEPLOY_VCS_PATH: dev
+    SOURCE_VCS_PATH: test
+
+events:
+  build:
+    steps:
+      # If you have build instructions, put them here. They are not required.
+      - build_site:
+          script:
+            - touch docroot/test.html
+            - echo "Pipelines examples 717. You successfully deployed your build to an ODE" > docroot/test.html
+            - composer install
+
+  post-deploy:
+    steps:
+      # Deploy the build artifact to a Cloud on-demand environment.
+      - deploy:
+          script:
+            - pipelines-deploy
