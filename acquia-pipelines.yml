@@ -7,7 +7,7 @@ events:
       - build_site:
           script:
             - touch docroot/test.html
-            - echo "Pipelines examples 7001. You successfully deployed your build to an ODE" > docroot/test.html
+            - echo "Pipelines examples 7002. You successfully deployed your build to an ODE" > docroot/test.html
       - build_arifact:
           script:
             - composer install
