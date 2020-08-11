@@ -7,7 +7,7 @@ events:
       - build_site:
           script:
             - touch docroot/test.html
-            - echo "Pipelines examples 7179. You successfully deployed your build to an ODE" > docroot/test.html
+            - echo "Pipelines examples 7000. You successfully deployed your build to an ODE" > docroot/test.html
             - composer install
   pr-merged:
     steps:
